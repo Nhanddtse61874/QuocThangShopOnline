@@ -17,7 +17,6 @@ namespace Persistence.EnitityModel.Config
             builder.HasIndex(x => x.Id);
 
             builder.Property(x => x.ParentId)
-                .HasDefaultValueSql()
                 .IsRequired();
 
             builder.Property(x => x.Name)

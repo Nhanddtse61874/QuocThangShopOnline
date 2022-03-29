@@ -22,7 +22,7 @@ namespace Persistence.EnitityModel
 
         public Product Product { get; set; }
 
-        public ICollection<ImageStorage> Images { get; set; }
+        public ICollection<ProductDetailImageStorage> Images { get; set; }
 
         public ICollection<OrderDetail> OrderDetails { get; set; }
     }

@@ -123,12 +123,7 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProductDetailId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductDetailId");
 
                     b.ToTable("ImageStorage");
                 });
@@ -330,13 +325,6 @@ namespace Persistence.Migrations
                     b.Navigation("Parent");
                 });
 
-            modelBuilder.Entity("Persistence.EnitityModel.ImageStorage", b =>
-                {
-                    b.HasOne("Persistence.EnitityModel.ProductDetail", null)
-                        .WithMany("Images")
-                        .HasForeignKey("ProductDetailId");
-                });
-
             modelBuilder.Entity("Persistence.EnitityModel.Order", b =>
                 {
                     b.HasOne("Persistence.EnitityModel.Customer", "Customer")
@@ -406,7 +394,7 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("Persistence.EnitityModel.ProductDetail", "ProductDetail")
-                        .WithMany()
+                        .WithMany("Images")
                         .HasForeignKey("ProductDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

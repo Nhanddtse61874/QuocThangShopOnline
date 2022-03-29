@@ -12,8 +12,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(QuocThangDbContext))]
-    [Migration("20220328094210_initdb")]
-    partial class initdb
+    [Migration("20220329033850_initdbv1")]
+    partial class initdbv1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,23 @@ namespace Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("LogicHandler.EnitityModel.Vendor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Vendor");
+                });
 
             modelBuilder.Entity("Persistence.EnitityModel.Category", b =>
                 {
@@ -222,6 +239,8 @@ namespace Persistence.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("VendorId");
+
                     b.ToTable("Product");
                 });
 
@@ -358,7 +377,15 @@ namespace Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("LogicHandler.EnitityModel.Vendor", "Vendor")
+                        .WithMany("Products")
+                        .HasForeignKey("VendorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("Vendor");
                 });
 
             modelBuilder.Entity("Persistence.EnitityModel.ProductDetail", b =>
@@ -408,6 +435,11 @@ namespace Persistence.Migrations
                     b.Navigation("ImageStorage");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("LogicHandler.EnitityModel.Vendor", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Persistence.EnitityModel.Category", b =>
