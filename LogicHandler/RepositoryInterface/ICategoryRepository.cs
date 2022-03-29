@@ -16,20 +16,17 @@ namespace MediatorHandler.RepositoryInterface
         IQueryable<Category> GetAll(
              Expression<Func<Category, bool>> filter = null,
              Func<IQueryable<Category>, IOrderedQueryable<Category>> orderBy = null,
-             int? pageIndex = null, int? pageSize = null,
-             Func<IQueryable<Category>, IQueryable<Category>> include = null
-             );
+             int? pageIndex = null, int? pageSize = null);
 
-        Task<Category> GetByIdAsync(int id, Func<IQueryable<Category>, IQueryable<Category>> includeProperties = null);
+        Task<Category> GetByIdAsync(int id);
 
-        IQueryable<Category> Get(Expression<Func<Category, bool>> filter, Func<IQueryable<Category>, IQueryable<Category>> includeProperties = null);
+        IQueryable<Category> Get(Expression<Func<Category, bool>> filter);
 
         void DeleteRange(List<Category> entities);
 
         Task<TResult> GetFirstOrDefaultAsync<TResult>(Expression<Func<Category, TResult>> selector,
                                           Expression<Func<Category, bool>> predicate = null,
                                           Func<IQueryable<Category>, IOrderedQueryable<Category>> orderBy = null,
-                                          Func<IQueryable<Category>, IQueryable<Category>> include = null,
                                           bool disableTracking = true);
     }
 }

@@ -15,13 +15,11 @@ namespace Persistence.Repository
         {
             _dbContext = context;
             _dbSet = context.Set<Product>();
-            _dbSet = context.Set<Product>();
         }
 
         public async Task AddAsync(Product entity)
         {
             await _dbContext.AddAsync(entity);
-            await _dbContext.SaveChangesAsync();
             await _dbContext.SaveChangesAsync();
         }
 
