@@ -1,0 +1,10 @@
+﻿[*.cs]
+
+# CS0436: Type conflicts with imported type
+dotnet_diagnostic.CS0436.severity = none
+
+# CS8603: Possible null reference return.
+dotnet_diagnostic.CS8603.severity = none
+
+# CS8625: Cannot convert null literal to non-nullable reference type.
+dotnet_diagnostic.CS8625.severity = none
