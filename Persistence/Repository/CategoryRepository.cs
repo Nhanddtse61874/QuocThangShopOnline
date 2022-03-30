@@ -14,6 +14,7 @@ namespace Persistence.Repository
         public CategoryRepository(QuocThangDbContext context)
         {
             _dbContext = context;
+            _dbSet = context.Set<Category>();
         }
         public async Task AddAsync(Category entity)
         {
@@ -46,11 +47,13 @@ namespace Persistence.Repository
             return result.Where(filter);
         }
 
-        public IQueryable<Category> GetAll(Expression<Func<Category, bool>> filter = null, Func<IQueryable<Category>, IOrderedQueryable<Category>> orderBy = null, int? pageIndex = null, int? pageSize = null)
+        public IQueryable<Category> GetAll(Expression<Func<Category, bool>> filter = null, 
+                Func<IQueryable<Category>, 
+                IOrderedQueryable<Category>> orderBy = null, int? pageIndex = null, int? pageSize = null, 
+                Func<IQueryable<Category>, IQueryable<Category>> includeProperties = null)
         {
-            var result = _dbSet.Include(x => x.Products)
-               .Include(x => x.Parent)
-               .AsQueryable();
+            var result = IncludeProperties(includeProperties);
+               
             if (filter != null)
             {
                 result = result.Where(filter);
@@ -63,7 +66,7 @@ namespace Persistence.Repository
             {
                 result = result.Skip((pageIndex.Value - 1) * pageSize.Value).Take(pageSize.Value);
             }
-            return result;
+            return result.Include(x => x.Parent); ;
         }
 
         public async Task<Category> GetByIdAsync(int id)
@@ -101,6 +104,11 @@ namespace Persistence.Repository
             _dbContext.Attach(entity);
             _dbContext.Entry(entity).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();
+        }
+
+        private IQueryable<Category> IncludeProperties(Func<IQueryable<Category>, IQueryable<Category>> includeProperties = null)
+        {
+            return includeProperties == null ? _dbSet : includeProperties(_dbSet);
         }
     }
 }

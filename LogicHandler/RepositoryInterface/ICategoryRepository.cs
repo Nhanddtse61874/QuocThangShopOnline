@@ -16,7 +16,7 @@ namespace MediatorHandler.RepositoryInterface
         IQueryable<Category> GetAll(
              Expression<Func<Category, bool>> filter = null,
              Func<IQueryable<Category>, IOrderedQueryable<Category>> orderBy = null,
-             int? pageIndex = null, int? pageSize = null);
+             int? pageIndex = null, int? pageSize = null, Func<IQueryable<Category>, IQueryable<Category>> includeProperties = null);
 
         Task<Category> GetByIdAsync(int id);
 
