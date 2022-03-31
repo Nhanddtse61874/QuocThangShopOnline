@@ -1,4 +1,4 @@
-﻿namespace QuocThangShopOnline.Models
+﻿namespace QuocThangShopOnline.ViewModel
 {
     public class ProductViewModel
     {

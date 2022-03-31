@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicHandler.Handler.CategoryHandler.Get
+namespace LogicHandler.Handler.CategoryHandler
 {
     #region Get All Category
     public class GetAllCategoryRequest : IRequest<List<CategoryDTO>>

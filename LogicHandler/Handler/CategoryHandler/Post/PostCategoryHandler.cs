@@ -4,7 +4,7 @@ using MediatorHandler.RepositoryInterface;
 using MediatR;
 using Persistence.EnitityModel;
 
-namespace LogicHandler.Handler.CategoryHandler.Post
+namespace LogicHandler.Handler.CategoryHandler
 {
     #region Add Category
     public class AddCategoryRequest : IRequest
