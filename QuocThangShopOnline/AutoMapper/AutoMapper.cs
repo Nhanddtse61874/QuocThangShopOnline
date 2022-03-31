@@ -20,6 +20,14 @@ namespace QuocThangShopOnline.AutoMapper
             #region Product
             CreateMap<Product, ProductDTO>().ReverseMap();
             #endregion
+
+            #region Customer
+            CreateMap<Customer, CustomerDTO>().ReverseMap();
+            #endregion
+
+            #region Order
+            CreateMap<Order, OrderDTO>().ReverseMap();
+            #endregion
         }
     }
 }
