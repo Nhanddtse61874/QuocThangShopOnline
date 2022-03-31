@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using LogicHandler.DTO;
 using Persistence.EnitityModel;
-using QuocThangShopOnline.ViewModel;
+using QuocThangShopOnline.Admin.ViewModel;
 
 namespace QuocThangShopOnline.AutoMapper
 {

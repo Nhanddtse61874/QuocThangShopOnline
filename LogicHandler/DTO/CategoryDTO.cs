@@ -8,8 +8,8 @@
 
         public int? ParentId { get; set; }
 
-        public CategoryDTO Parent { get; set; }
+        public CategoryDTO? Parent { get; set; }
 
-        public ICollection<ProductDTO> Products { get; set; }
+        public ICollection<ProductDTO>? Products { get; set; }
     }
 }

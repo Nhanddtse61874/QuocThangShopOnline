@@ -3,7 +3,7 @@ using LogicHandler.DTO;
 using LogicHandler.Handler.CategoryHandler;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using QuocThangShopOnline.ViewModel;
+using QuocThangShopOnline.Admin.ViewModel;
 
 namespace QuocThangShopOnline.Controllers
 {
@@ -19,7 +19,7 @@ namespace QuocThangShopOnline.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index() => View(_mapper.Map<List<CategoryViewModel>>(_mediator.Send(new GetAllCategoryRequest { }).Result));
+        public IActionResult Index() => View( _mapper.Map<List<CategoryViewModel>>(_mediator.Send(new GetAllCategoryRequest { }).Result));
 
 
         [HttpGet]
@@ -29,17 +29,17 @@ namespace QuocThangShopOnline.Controllers
         public IActionResult Create(CategoryViewModel model)
         {
             _mediator.Send(new AddCategoryRequest { CategoryDTO = _mapper.Map<CategoryDTO>(model)});
-             return Redirect("Index");
+            return Redirect("Index");
         }
 
         [HttpGet]
         public IActionResult Edit(int id) => View(_mapper.Map<CategoryViewModel>(_mediator.Send(new GetCategoryByIdRequest { Id = id}).Result));
 
         [HttpPost]
-        public IActionResult Edit(CategoryViewModel model)
+        public async Task<IActionResult> Edit(CategoryViewModel model)
         {
-            _mediator.Send(new UpdateCategoryRequest { CategoryDTO = _mapper.Map<CategoryDTO>(model)});
-            return Redirect("Index");
+           await _mediator.Send(new UpdateCategoryRequest { CategoryDTO = _mapper.Map<CategoryDTO>(model)});
+           return Redirect("Index");
         }
     }
 }

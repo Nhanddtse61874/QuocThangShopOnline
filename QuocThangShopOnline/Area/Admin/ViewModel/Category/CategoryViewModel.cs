@@ -1,5 +1,5 @@
 ﻿
-namespace QuocThangShopOnline.ViewModel
+namespace QuocThangShopOnline.Admin.ViewModel
 {
     public class CategoryViewModel
     {
@@ -9,6 +9,6 @@ namespace QuocThangShopOnline.ViewModel
 
         public int? ParentId { get; set; }
 
-        public IList<ProductViewModel> Products { get; set; }
+        public IList<ProductViewModel>? Products { get; set; }
     }
 }

@@ -14,8 +14,8 @@ namespace Persistence.EnitityModel
 
         public int? ParentId { get; set; }
 
-        public Category Parent { get; set; }
+        public Category? Parent { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Product>? Products { get; set; }
     }
 }
