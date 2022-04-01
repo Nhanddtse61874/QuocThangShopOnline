@@ -2,11 +2,13 @@
 using LogicHandler.DTO;
 using LogicHandler.Handler.CategoryHandler;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using QuocThangShopOnline.Admin.ViewModel;
+using QuocThangShopOnline.Admin.Models;
 
-namespace QuocThangShopOnline.Controllers
+namespace QuocThangShopOnline.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IMapper _mapper;

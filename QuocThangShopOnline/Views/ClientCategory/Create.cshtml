@@ -1,0 +1,8 @@
+﻿@model CategoryViewModel
+
+@using (Html.BeginForm("Create", "Category", FormMethod.Post))
+{
+    <span>Name:</span> @Html.TextBoxFor(m => m.Name)<br />
+    <span>ParentId</span> @Html.TextBoxFor(m => m.ParentId)<br />
+    <input id = "Submit" type = "submit" value = "submit" />
+}

@@ -34,8 +34,13 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Category}/{action=Index}");
+
+app.MapControllerRoute(
+    name: "Area",
+    pattern: "{area:exists}/{controller=Category}/{action=Index}");
 
 app.Run();

@@ -1,5 +1,5 @@
 ﻿
-namespace QuocThangShopOnline.Admin.ViewModel
+namespace QuocThangShopOnline.Admin.Models
 {
     public class CategoryViewModel
     {
