@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using LogicHandler.DTO;
 using Persistence.EnitityModel;
-using QuocThangShopOnline.Admin.Models;
+using QuocThangShopOnline.Areas.Admin.Models;
+using QuocThangShopOnline.Models;
 
 namespace QuocThangShopOnline.AutoMapper
 {
@@ -15,6 +16,8 @@ namespace QuocThangShopOnline.AutoMapper
             #region Category
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<CategoryViewModel, CategoryDTO>().ReverseMap();
+            CreateMap<ClientCategoryViewModel, CategoryDTO>().ReverseMap();
+
             #endregion
 
             #region Product

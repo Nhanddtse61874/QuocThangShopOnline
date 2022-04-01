@@ -1,3 +1,4 @@
+using DataAccessLayer.RepositoryInterface;
 using LogicHandler.RepositoryInterface;
 using MediatorHandler.RepositoryInterface;
 using MediatR;
@@ -13,6 +14,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<QuocThangDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<DbContext, QuocThangDbContext>();
 var assembly = Assembly.Load("LogicHandler");

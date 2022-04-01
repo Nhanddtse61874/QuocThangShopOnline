@@ -2,9 +2,8 @@
 using LogicHandler.DTO;
 using LogicHandler.Handler.CategoryHandler;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using QuocThangShopOnline.Admin.Models;
+using QuocThangShopOnline.Areas.Admin.Models;
 
 namespace QuocThangShopOnline.Admin.Controllers
 {

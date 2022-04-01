@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace QuocThangShopOnline.Area.Admin.Controllers
+namespace QuocThangShopOnline.Areas.Admin.Controllers
 {
     public class CustomerController : Controller
     {

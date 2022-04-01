@@ -1,4 +1,4 @@
-﻿namespace QuocThangShopOnline.Admin.Models
+﻿namespace QuocThangShopOnline.Areas.Admin.Models
 {
     public class ProductViewModel
     {

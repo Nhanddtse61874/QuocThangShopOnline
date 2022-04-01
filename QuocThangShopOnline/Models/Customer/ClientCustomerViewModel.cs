@@ -1,6 +1,6 @@
-﻿namespace QuocThangShopOnline.Areas.Admin.Models
+﻿namespace QuocThangShopOnline.Models
 {
-    public class CustomerViewModel
+    public class ClientCustomerViewModel
     {
         public int Id { get; set; }
 

@@ -20,16 +20,15 @@ namespace LogicHandler.RepositoryInterface
              Func<IQueryable<Customer>, IQueryable<Customer>> include = null
              );
 
-        Task<Customer> GetByIdAsync(int id, Func<IQueryable<Customer>, IQueryable<Customer>> includeProperties = null);
+        Task<Customer> GetByIdAsync(int id);
 
-        IQueryable<Customer> Get(Expression<Func<Customer, bool>> filter, Func<IQueryable<Customer>, IQueryable<Customer>> includeProperties = null);
+        IQueryable<Customer> Get(Expression<Func<Customer, bool>> filter);
 
         void DeleteRange(List<Customer> entities);
 
         Task<TResult> GetFirstOrDefaultAsync<TResult>(Expression<Func<Customer, TResult>> selector,
                                           Expression<Func<Customer, bool>> predicate = null,
                                           Func<IQueryable<Customer>, IOrderedQueryable<Customer>> orderBy = null,
-                                          Func<IQueryable<Customer>, IQueryable<Customer>> include = null,
                                           bool disableTracking = true);
     }
 }
