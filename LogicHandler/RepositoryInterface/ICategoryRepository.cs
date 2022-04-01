@@ -13,7 +13,7 @@ namespace MediatorHandler.RepositoryInterface
 
         Task DeleteAsync(int id);
 
-        IQueryable<Category> GetAll(
+        IList<Category> GetAll(
              Expression<Func<Category, bool>> filter = null,
              Func<IQueryable<Category>, IOrderedQueryable<Category>> orderBy = null,
              int? pageIndex = null, int? pageSize = null, Func<IQueryable<Category>, IQueryable<Category>> includeProperties = null);

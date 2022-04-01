@@ -47,7 +47,7 @@ namespace Persistence.Repository
             return result.Where(filter);
         }
 
-        public IQueryable<Category> GetAll(Expression<Func<Category, bool>> filter = null, 
+        public IList<Category> GetAll(Expression<Func<Category, bool>> filter = null, 
                 Func<IQueryable<Category>, 
                 IOrderedQueryable<Category>> orderBy = null, int? pageIndex = null, int? pageSize = null, 
                 Func<IQueryable<Category>, IQueryable<Category>> includeProperties = null)
@@ -66,7 +66,7 @@ namespace Persistence.Repository
             {
                 result = result.Skip((pageIndex.Value - 1) * pageSize.Value).Take(pageSize.Value);
             }
-            return result.Include(x => x.Parent); ;
+            return result.Include(x => x.Parent).ToList();
         }
 
         public async Task<Category> GetByIdAsync(int id)

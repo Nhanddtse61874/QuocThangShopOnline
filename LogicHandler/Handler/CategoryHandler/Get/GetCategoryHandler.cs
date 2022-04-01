@@ -2,18 +2,18 @@
 using LogicHandler.DTO;
 using MediatorHandler.RepositoryInterface;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LogicHandler.Handler.CategoryHandler
 {
     #region Get All Category
     public class GetAllCategoryRequest : IRequest<List<CategoryDTO>>
     {
+        [FromRoute]
+        public int? PageIndex { get; set; }
 
+        [FromRoute]
+        public int? PageSize { get; set; }
     }
 
     public class GetAllCategoryHandler : HandlerBase, IRequestHandler<GetAllCategoryRequest, List<CategoryDTO>>
@@ -25,7 +25,7 @@ namespace LogicHandler.Handler.CategoryHandler
         }
 
         public async Task<List<CategoryDTO>> Handle(GetAllCategoryRequest request, CancellationToken cancellationToken)
-            => _mapper.Map<List<CategoryDTO>>(_repository.GetAll());
+            => _mapper.Map<List<CategoryDTO>>(_repository.GetAll(pageIndex : request.PageIndex, pageSize : request.PageSize));
     }
     #endregion
 
