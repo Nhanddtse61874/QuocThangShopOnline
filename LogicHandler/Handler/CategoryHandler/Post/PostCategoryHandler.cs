@@ -6,7 +6,7 @@ using Persistence.EnitityModel;
 
 namespace LogicHandler.Handler.CategoryHandler
 {
-    #region Add Category
+    #region Create Category
     public class AddCategoryRequest : IRequest
     {
         public CategoryDTO? CategoryDTO { get; set; }
