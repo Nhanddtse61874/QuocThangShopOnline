@@ -1,12 +1,7 @@
 ﻿using DataAccessLayer.RepositoryInterface;
 using Microsoft.EntityFrameworkCore;
 using Persistence.EnitityModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence.Repository
 {
@@ -116,9 +111,5 @@ namespace Persistence.Repository
             return includeProperties == null ? _dbSet : includeProperties(_dbSet);
         }
 
-        public IQueryable<Order> Get(Expression<Func<Order, bool>> filter, Func<IQueryable<Order>, IQueryable<Order>> includeProperties = null)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
