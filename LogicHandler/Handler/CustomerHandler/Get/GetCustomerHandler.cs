@@ -3,7 +3,7 @@ using LogicHandler.DTO;
 using LogicHandler.RepositoryInterface;
 using MediatR;
 
-namespace LogicHandler.Handler.CustomerHandler.Get
+namespace LogicHandler.Handler.CustomerHandler
 {
     #region Get All Customers
     public class GetAllCustomer : IRequest<IList<CustomerDTO>>

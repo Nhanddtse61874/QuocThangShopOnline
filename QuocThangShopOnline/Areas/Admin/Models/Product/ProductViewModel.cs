@@ -1,4 +1,6 @@
 ﻿
+using QuocThangShopOnline.Areas.Admin.Models.Vendor;
+
 namespace QuocThangShopOnline.Areas.Admin.Models
 {
     public class ProductViewModel

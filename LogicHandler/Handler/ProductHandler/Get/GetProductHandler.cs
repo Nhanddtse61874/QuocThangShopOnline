@@ -3,7 +3,7 @@ using LogicHandler.DTO;
 using LogicHandler.RepositoryInterface;
 using MediatR;
 
-namespace LogicHandler.Handler.ProductHandler.Get
+namespace LogicHandler.Handler.ProductHandler
 {
     #region Get All Product
 

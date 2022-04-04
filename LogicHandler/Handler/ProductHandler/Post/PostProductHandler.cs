@@ -4,7 +4,7 @@ using LogicHandler.RepositoryInterface;
 using MediatR;
 using Persistence.EnitityModel;
 
-namespace LogicHandler.Handler.ProductHandler.Post
+namespace LogicHandler.Handler.ProductHandler
 {
     #region Create Product
     public class CreateProductRequest : IRequest

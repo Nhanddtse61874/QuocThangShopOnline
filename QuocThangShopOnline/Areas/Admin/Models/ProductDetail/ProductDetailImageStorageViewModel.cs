@@ -1,5 +1,5 @@
-﻿using QuocThangShopOnline.Areas.Admin.Models
-{
+﻿using QuocThangShopOnline.Areas.Admin.Models;
+
     public class ProductDetailImageStorageViewModel
     {
         public int Id { get; set; }
@@ -13,4 +13,4 @@
         public ImageStorageViewModel ImageStorage { get; set; }
     }
 
-}
+

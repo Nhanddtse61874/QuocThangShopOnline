@@ -3,7 +3,7 @@ using DataAccessLayer.RepositoryInterface;
 using MediatR;
 using Persistence.EnitityModel;
 
-namespace LogicHandler.Handler.OrderHandler.Get
+namespace LogicHandler.Handler.OrderHandler
 {
     #region Get All Order By User Id
     public class GetAllOrderByUserIdRequest : IRequest<IList<Order>>

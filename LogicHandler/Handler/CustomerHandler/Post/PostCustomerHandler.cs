@@ -4,7 +4,7 @@ using LogicHandler.RepositoryInterface;
 using MediatR;
 using Persistence.EnitityModel;
 
-namespace LogicHandler.Handler.CustomerHandler.Post
+namespace LogicHandler.Handler.CustomerHandler
 {
     #region Create Customer
     public class CreateCustomerRequest : IRequest
@@ -50,7 +50,6 @@ namespace LogicHandler.Handler.CustomerHandler.Post
             await _repository.ModifyAsync(_mapper.Map<Customer>(request.Customer));
             return await Task.FromResult(Unit.Value);
         }
-
     }
     #endregion
 

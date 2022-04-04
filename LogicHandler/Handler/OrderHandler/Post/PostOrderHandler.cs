@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicHandler.Handler.OrderHandler.Post
+namespace LogicHandler.Handler.OrderHandler
 {
     #region Create Order
     public class CreateCustomerRequest : IRequest
