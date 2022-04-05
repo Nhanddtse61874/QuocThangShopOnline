@@ -1,0 +1,19 @@
+﻿@using static LogicHandler.Handler.AccountHandler.Login.Login
+@model LoginViewModels
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+   
+    <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td>UserName</td>
+                <td>Password</td>
+            </tr>
+        
+            <tr>
+                <td>@Html.TextAreaFor(model => model.Username)</td>
+                <td>@Html.TextAreaFor(model => model.Password)</td>
+            </tr>
+    </table>
+     <input id = "Submit" type = "submit" value = "submit" />
+    }
