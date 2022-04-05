@@ -1,0 +1,27 @@
+﻿@using QuocThangShopOnline.Areas.Admin.Models
+@model List<ProductViewModel>
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Current Price</td>
+            <td>Quantity</td>
+            <td>Description</td>
+        </tr>
+        @for (int i = 0; i < @Model.Count; i++)
+        {
+            var product = Model[i];
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.CurrentPrice</td>
+                <td>@product.CreatedDate</td>
+                <td>@product.Description</td>
+            </tr>
+        }
+
+    </table>
+    <input id="Submit" type="submit" value="submit" />
+}
