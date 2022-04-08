@@ -33,6 +33,7 @@ namespace QuocThangShopOnline.Areas.Admin.Controllers
         [HttpPost]
         public  IActionResult Create(ProductViewModel model)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest();
