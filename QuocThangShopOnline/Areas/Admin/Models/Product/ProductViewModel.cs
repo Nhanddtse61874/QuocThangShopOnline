@@ -3,6 +3,7 @@ using QuocThangShopOnline.Areas.Admin.Models.Vendor;
 
 namespace QuocThangShopOnline.Areas.Admin.Models
 {
+#pragma warning disable CS8618
     public class ProductViewModel
     {
         public int Id { get; set; }
